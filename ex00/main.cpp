@@ -1,12 +1,22 @@
 #include <iostream>
+#include <stdexcept>
+
+void	converter(std::string arg)
+{
+	(void)arg;
+}
 
 int	main(int ac, char** av)
 {
-	if (ac != 2)
+	try
+	{
+		if (ac != 2)
+			throw std::runtime_error("Please introduce an argument to cast");
+		return (converter(std::string(av[1])), 0);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "EXCEPTION: " << e.what() << std::endl;	
 		return (1);
-	std::cout << "char: " << static_cast<int>(*av[1]) << std::endl;
-	/* std::cout << "int: " << xxx << std::endl; */
-	/* std::cout << "float: " << xxx << std::endl; */
-	/* std::cout << "double: " << xxx << std::endl; */
-	return (0);
+	}
 }
