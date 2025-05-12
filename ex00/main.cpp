@@ -1,18 +1,14 @@
-#include <iostream>
-#include <stdexcept>
-
-void	converter(std::string arg)
-{
-	(void)arg;
-}
+#include "ScalarConverter.hpp"
 
 int	main(int ac, char** av)
 {
+	ScalarConverter instance;
+
 	try
 	{
 		if (ac != 2)
 			throw std::runtime_error("Please introduce an argument to cast");
-		return (converter(std::string(av[1])), 0);
+		return (instance.convert(std::string(av[1])), 0);
 	}
 	catch (const std::exception& e)
 	{

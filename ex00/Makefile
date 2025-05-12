@@ -1,7 +1,8 @@
 NAME = ex00
 ex00 = ex00
 
-SRC = 	main.cpp
+SRC = 	main.cpp \
+	ScalarConverter.cpp
 
 CXX = c++ 
 
