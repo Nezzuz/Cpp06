@@ -18,35 +18,40 @@ ScalarConverter& ScalarConverter::operator = (const ScalarConverter& copy)
 ScalarConverter::~ScalarConverter() {}
 
 template <typename T>
-char	tochar(T& value)
+static void	tochar(T& value)
 {
 	(void)value;
-	return ('\0');
 }
 
 template <typename T>
-int	toint(T& value)
+static void	toint(T& value)
 {
 	(void)value;
-	return (0);
 }
 
 template <typename T>
-float	tofloat(T& value)
+static void	tofloat(T& value)
 {
 	(void)value;
-	return (0.0f);
 }
 
 template <typename T>
-double	todouble(T& value)
+static void	todouble(T& value)
 {
 	(void)value;
-	return (0.0);
+}
+
+template <typename T>
+static void	bridge(T& value)
+{
+	tochar(value);	
+	toint(value);	
+	tofloat(value);	
+	todouble(value);	
 }
 
 void	ScalarConverter::convert(std::string arg)
 {
-	(void)arg;
+	bridge(arg);
 }
 
