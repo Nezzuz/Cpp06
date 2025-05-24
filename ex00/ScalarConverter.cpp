@@ -52,6 +52,30 @@ static void	bridge(T& value)
 
 void	ScalarConverter::convert(std::string arg)
 {
-	bridge(arg);
+	char *endptr;
+
+	errno = 0;
+	int i = std::strtol(arg.c_str(), &endptr, 10);
+	if (errno == 0 && endptr[0] == '\0')
+		return (bridge(i));
+
+	char c = arg[0];
+	if (arg[0] != '\0')
+		return (bridge(c));
+
+	errno = 0;
+	float f = std::strtof(arg.c_str(), &endptr);
+	if (errno == 0 && endptr[0] == 'f' && endptr[1] == '\0')
+		return (bridge(f));
+
+	errno = 0;
+	double d = std::strtod(arg.c_str(), &endptr);
+	if (errno == 0 && endptr[0] == '\0')
+		return (bridge(d));
+
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: impossible" << std::endl;
+	std::cout << "double: impossible" << std::endl;
 }
 
