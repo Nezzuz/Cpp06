@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "Data.hpp"
 
 struct Serializer
 {
@@ -8,13 +9,7 @@ struct Serializer
 	Serializer(const Serializer& copy);
 	Serializer& operator = (const Serializer& copy);
 	~Serializer();
-	uintptr_t	serialize(Data* ptr);
-	Data*		deserialize(uintptr_t raw);
-};
-
-struct	Data
-{
-	int		index;
-	std::string	content;
+	unsigned long	serialize(Data* ptr);
+	Data*		deserialize(unsigned long raw);
 };
 

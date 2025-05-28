@@ -1,30 +1,27 @@
-#include "Serilizer.hpp"
+include "Serializer.hpp"
 
 Serializer::Serializer(void) {}
 
 Serializer::Serializer(const Serializer& copy)
 {
-	copy = *this;
+	(void)copy;
 }
 
-Serilizer& Serializer::operator = (const Serializer& copy)
+Serializer& Serializer::operator = (const Serializer& copy)
 {
-	if (this != &copy)
-	{
-		/* Nothing to copy */		
-	}
+	(void)copy;
 	return (*this);
 }
 
-Serializer::~Serilizer(void) {}
+Serializer::~Serializer(void) {}
 
-uintptr_t	Serializer::serialize(Data* ptr)
+unsigned long	Serializer::serialize(Data* ptr)
 {
-
+	return (reinterpret_cast<unsigned long>(ptr));
 }
 
-Data*		Serializer::deserialize(uintptr_t raw)
+Data*		Serializer::deserialize(unsigned long raw)
 {
-
+	return (reinterpret_cast<Data*>(raw));
 }
 

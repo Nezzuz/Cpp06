@@ -1,7 +1,8 @@
 NAME = ex01
 ex01 = ex01
 
-SRC = 	main.cpp 
+SRC = 	main.cpp \
+	Serializer.cpp
 
 CXX = c++ 
 
