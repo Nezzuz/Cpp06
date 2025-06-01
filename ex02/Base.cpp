@@ -1,9 +1,8 @@
-
 #include "Base.hpp"
 
 Base::~Base() {}
 
-Base* generate(void)
+Base*	generate(void)
 {
 	std::srand(std::time(0));
 	
@@ -16,7 +15,7 @@ Base* generate(void)
 	return (new C());
 }
 
-void identify(Base* p)
+void	identify(Base* p)
 {
 	std::cout << "Pointer: ";
 	if (dynamic_cast<A*>(p))
@@ -27,7 +26,7 @@ void identify(Base* p)
 		std::cout << "C" << std::endl;
 }
 
-void identify(Base& p)
+void	identify(Base& p)
 {
 	std::cout << "Reference: ";
 	try
@@ -51,3 +50,4 @@ void identify(Base& p)
 	}
 	catch(const std::exception& e) {}
 }
+
